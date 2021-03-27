@@ -1,0 +1,10 @@
+@import "../../config.scss";
+
+.newslist {
+  @include row();
+  flex-wrap: wrap;
+  
+  &__group {
+    width: 33%;
+  }
+}
