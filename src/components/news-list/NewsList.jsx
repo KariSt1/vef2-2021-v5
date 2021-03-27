@@ -13,23 +13,23 @@ export function NewsList() {
     async function fetchData() {
       setLoading(true);
       setError(null);
-  
+
       let json;
-  
+
       try {
         const result = await fetch(apiUrl);
-  
+
         if (!result.ok) {
           throw new Error('result not ok');
         }
-  
+
         json = await result.json();
       } catch (e) {
         setError('Gat ekki sótt fréttir.');
       } finally {
         setLoading(false);
       }
-  
+
       setData(json);
     }
     fetchData();
@@ -47,7 +47,7 @@ export function NewsList() {
     );
   }
 
-  let newsGroups = data || [];
+  const newsGroups = data || [];
 
   return (
     <div className={s.newslist}>

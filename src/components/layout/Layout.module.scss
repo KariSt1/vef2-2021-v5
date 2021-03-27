@@ -1,16 +1,16 @@
-@import "../../config.scss";
+@import '../../config';
 
 .layout {
   &__header {
     margin: 0.5em;
   }
-  
+
   &__row {
     @include row();
   }
 
   &__seperator {
-    background-color: black;
+    background-color: #000;
     border-style: none;
     height: 1px;
     margin-bottom: 2em;

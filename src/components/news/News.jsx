@@ -10,7 +10,7 @@ const apiUrl = process.env.REACT_APP_API_URL;
 News.propTypes = {
   title: PropTypes.string.isRequired,
   allNews: PropTypes.bool.isRequired,
-}
+};
 
 export function News({ title, allNews }) {
   const [loading, setLoading] = useState(false);
@@ -22,18 +22,18 @@ export function News({ title, allNews }) {
     async function fetchData() {
       setLoading(true);
       setError(null);
-  
+
       let json;
-  
+
       const url = `${apiUrl}${title}`;
-  
+
       try {
         const result = await fetch(url);
 
         if (result.status === 404) {
           setStatus(404);
         }
-  
+
         if (!result.ok) {
           throw new Error('result not ok');
         }
@@ -43,7 +43,7 @@ export function News({ title, allNews }) {
       } finally {
         setLoading(false);
       }
-  
+
       setData(json);
     }
     fetchData();
@@ -67,7 +67,7 @@ export function News({ title, allNews }) {
     );
   }
 
-  let news = data.items || [];
+  const news = data.items || [];
   let link;
   if (allNews) {
     link = <Link to='/' className={s.news__link}>Til baka</Link>;
@@ -87,8 +87,8 @@ export function News({ title, allNews }) {
             ? (news.map((article, i) => {
               return (
                 <li className={s.news__article} key={i}><a className={s.news__text} href={article.link}>{article.title}</a></li>
-              )})) 
-            : (news.splice(0,5).map((article, i) => {
+              )}))
+            : (news.splice(0, 5).map((article, i) => {
               return (
                 <li className={s.news__article} key={i}><a className={s.news__text} href={article.link}>{article.title}</a></li>
               )}))

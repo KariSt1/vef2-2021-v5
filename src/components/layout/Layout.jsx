@@ -1,4 +1,3 @@
-
 import s from './Layout.module.scss';
 
 export function Layout({ title, children }) {
